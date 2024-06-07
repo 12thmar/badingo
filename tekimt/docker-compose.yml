@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  react-app:
+    build:
+      context: ./bunachin
+    container_name: react-app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+
+  odoo:
+    image: odoo:14
+    container_name: odoo
+    ports:
+      - "8069:8069"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - HOST=db
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:13
+    container_name: odoo-db
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  odoo-db-data:
