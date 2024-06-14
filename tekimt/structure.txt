@@ -1,0 +1,8 @@
+project-root/
+├── react-app/
+│   ├── Dockerfile
+│   └── ... (other React app files)
+├── nginx/
+│   ├── Dockerfile
+│   └── default.conf
+└── docker-compose.yml
