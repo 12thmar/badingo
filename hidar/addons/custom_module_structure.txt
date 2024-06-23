@@ -1,0 +1,24 @@
+custom_sales_api/
+├── __init__.py
+├── __manifest__.py
+├── controllers/
+│   ├── __init__.py
+│   └── main.py
+├── models/
+│   ├── __init__.py
+│   └── sales.py
+
+
+mkdir custom_sales_api
+cd custom_sales_api
+touch __init__.py
+touch __manifest__.py
+mkdir controllers
+cd controllers
+touch __init__.py
+touch main.py
+cd ..
+mkdir modles
+cd models
+touch __init__.py
+sales.py
